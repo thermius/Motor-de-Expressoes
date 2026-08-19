@@ -1,4 +1,4 @@
-# Calculadora-de-Express-es
+# Calculadora de Expressões
 Calculadora de expressões matemáticas que converte notação infixa  para pós-fixa usando o algoritmo de Shunting Yard, com suporte a  parênteses e operadores com precedência. Implementado em C puro.
 
 # 🧮 Calculadora de Expressões
@@ -33,7 +33,6 @@ thermius@arch:
 ```
 
 
-
 ### 📚 Conceitos Demonstrados
 
 - Algoritmo Shunting Yard (Dijkstra)
@@ -42,6 +41,23 @@ thermius@arch:
 - Tokenização de expressões
 - Gerenciamento seguro de memória em C
 
+
+### 🚧 Roadmap
+
+- [ ] Suportar operadores unários
+- [ ] Integrar funções matemáticas
+- [ ] Variáveis e tabela de símbolos
+- [ ] Estruturas de controle (if, for, while)
+- [ ] Transformar em interpretador completo
+
+### 🎯 Limitações Atuais
+
+- Máximo 32 caracteres por expressão
+- Apenas operadores binários (`+`, `-`, `*`, `/`)
+- Sem suporte a operadores unários (negação, etc)
+- Sem suporte a funções (sin, cos, sqrt, etc)
+- Sem suporte a variáveis
+  
 ### 🧹 Gerenciamento eficiente de memória com Valgrind
 
 ```bash

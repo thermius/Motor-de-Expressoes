@@ -80,6 +80,15 @@ thermius@arch:
 Resultado: 36 alocações e 36 liberações, sem vazamentos de memória ou erros detectados pelo Valgrind no teste realizado.
 
 
+### 📚 Referência
+
+**Estruturas de Dados Usando C**
+- **Autores**: Aaron M. Tenenbaum, Yedidyah Langsam, Moshe J. Augenstein
+- **Formato**: Capa comum
+- **Edição**: Português
+
+Este projeto utiliza os conceitos fundamentais de pilhas (stacks) e algoritmos de conversão de expressões apresentados no capítulo 2 desta obra.
+
 
 ### 📄 Licença
 

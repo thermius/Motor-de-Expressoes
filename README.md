@@ -1,7 +1,5 @@
-# Calculadora de Expressões
-Calculadora de expressões matemáticas que converte notação infixa  para pós-fixa usando o algoritmo de Shunting Yard, com suporte a  parênteses e operadores com precedência. Implementado em C puro.
 
-# 🧮 Calculadora de Expressões
+## 🧮 Calculadora de Expressões
 
 Conversor de expressões matemáticas de notação infixa para pós-fixa com avaliador completo. Implementa o algoritmo de Shunting Yard em C puro.
 

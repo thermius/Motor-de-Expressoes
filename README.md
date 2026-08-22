@@ -1,6 +1,6 @@
 # 🧮 Motor de Expressões Matemáticas
 
-Calculadora avançada de expressões matemáticas desenvolvida em **C puro**. Implementa conversão de notação infixa para pós-fixa (algoritmo Shunting Yard) com suporte a números multi-dígitos e funções matemáticas.
+Calculadora de expressões matemáticas desenvolvida em **C puro**. Implementa conversão de notação infixa para pós-fixa (algoritmo Shunting Yard) com suporte a números multi-dígitos e funções matemáticas.
 
 ## ✨ Funcionalidades
 
@@ -42,10 +42,12 @@ thermius@arch:
 
 ## 🚧 Roadmap do Interpretador
 
-1️⃣ **Calculadora de expressões** ✅
-2️⃣ **Chamada a funções da "biblioteca padrão"**
-3️⃣ **Controle de fluxo** (if, while, for)
-4️⃣ **Variáveis e escopos**
+Atualmente a ferramenta funciona como uma **calculadora de expressões**. O projeto evoluirá para um **interpretador completo** que utilizará **Árvore de Sintaxe Abstrata (AST)** para processar comandos, similar a linguagens de programação.
+
+**Próximas fases:**
+1️⃣ **Chamada a funções da "biblioteca padrão"**
+2️⃣ **Controle de fluxo** (if, while, for)
+3️⃣ **Variáveis e escopos**
 
 ## 🎯 Limitações Atuais
 

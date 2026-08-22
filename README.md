@@ -46,9 +46,10 @@ Atualmente a ferramenta funciona como uma **calculadora de expressões**. O proj
 
 **Próximas fases:**
 
-- 1️⃣ Chamada a funções da "biblioteca padrão"
-- 2️⃣ Controle de fluxo (if, while, for)
-- 3️⃣ Variáveis e escopos
+- 1️⃣ Processamento de expressões matemáticas ✅ 
+- 2️⃣ Chamada a funções da "biblioteca padrão"
+- 3️⃣ Controle de fluxo (if, while, for)
+- 4️⃣ Variáveis e escopos
 
 ## 🎯 Limitações Atuais
 

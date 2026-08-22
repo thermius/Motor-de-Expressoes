@@ -22,15 +22,12 @@ gcc -o motor-expressoes main.c
 ### 💻 Uso no terminal:
 
 ```bash
-thermius@arch: ./motor-expressoes
-Motor de Expressões Matemáticas v1.0
-Informe a expressão: (2+6+5+9+4+9)*9
+thermius@arch: ./a.out 
+************** CALCULADORA SIMPLES DE EXPRESSAO ESCRITA EM C **************
+Informe a expresão (suporta somente numeros de 0 a 9 e 32 caracretes totais para uma expressao): (2+6+5+9+4+9)*9    
 resultado: 315
+thermius@arch:
 
-thermius@arch: ./motor-expressoes
-Motor de Expressões Matemáticas v1.0
-Informe a expressão: sqrt(16) + sin(45)
-resultado: 5.7071
 ```
 
 ## 📚 Conceitos Demonstrados

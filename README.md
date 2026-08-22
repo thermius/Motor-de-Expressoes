@@ -1,11 +1,12 @@
+# 🧮 Motor de Expressões Matemáticas
 
-## 🧮 Calculadora de Expressões
-
-Conversor de expressões matemáticas de notação infixa para pós-fixa com avaliador completo. Implementa o algoritmo de Shunting Yard em C puro.
+Calculadora avançada de expressões matemáticas desenvolvida em **C puro**. Implementa conversão de notação infixa para pós-fixa (algoritmo Shunting Yard) com suporte a números multi-dígitos e funções matemáticas.
 
 ## ✨ Funcionalidades
 
 - ✅ Conversão de expressões **infixa → pós-fixa** (algoritmo Shunting Yard)
+- ✅ Suporte a **números com múltiplos dígitos**
+- ✅ **Funções matemáticas** (sin, cos, sqrt, etc)
 - ✅ Suporte completo a **parênteses** com aninhamento
 - ✅ **Precedência correta** de operadores (`*`, `/` antes de `+`, `-`)
 - ✅ Operadores suportados: `+`, `-`, `*`, `/`
@@ -15,81 +16,72 @@ Conversor de expressões matemáticas de notação infixa para pós-fixa com ava
 ## 🚀 Compilação
 
 ```bash
-gcc -o calculadora main.c 
+gcc -o motor-expressoes main.c 
 ```
 
 ### 💻 Uso no terminal:
+
 ```bash
-
-thermius@arch: ./a.out 
-
-************** CALCULADORA SIMPLES DE EXPRESSAO ESCRITA EM C **************
-
-Informe a expresão (suporta somente numeros de 0 a 9 e 32 caracretes totais para uma expressao): (2+6+5+9+4+9)*9    
+thermius@arch: ./motor-expressoes
+Motor de Expressões Matemáticas v1.0
+Informe a expressão: (2+6+5+9+4+9)*9
 resultado: 315
-thermius@arch: 
+
+thermius@arch: ./motor-expressoes
+Motor de Expressões Matemáticas v1.0
+Informe a expressão: sqrt(16) + sin(45)
+resultado: 5.7071
 ```
 
-
-### 📚 Conceitos Demonstrados
+## 📚 Conceitos Demonstrados
 
 - Algoritmo Shunting Yard (Dijkstra)
 - Pilhas (stacks) para processamento de operadores
 - Precedência e associatividade de operadores
-- Tokenização de expressões
+- Tokenização e parsing de expressões
+- Conversão char → número (multi-dígito)
+- Avaliação de funções matemáticas
 - Gerenciamento seguro de memória em C
 
+## 🚧 Roadmap do Interpretador
 
-### 🚧 Roadmap
+1️⃣ **Calculadora de expressões** ✅
+2️⃣ **Chamada a funções da "biblioteca padrão"**
+3️⃣ **Controle de fluxo** (if, while, for)
+4️⃣ **Variáveis e escopos**
 
-- [ ] Suportar operadores unários
-- [ ] Integrar funções matemáticas
-- [ ] Variáveis e tabela de símbolos
-- [ ] Estruturas de controle (if, for, while)
-- [ ] Transformar em interpretador completo
+## 🎯 Limitações Atuais
 
-### 🎯 Limitações Atuais
-
-- Máximo 32 caracteres por expressão
+- Máximo 32 caracteres por expressão (expansível)
 - Apenas operadores binários (`+`, `-`, `*`, `/`)
 - Sem suporte a operadores unários (negação, etc)
-- Sem suporte a funções (sin, cos, sqrt, etc)
 - Sem suporte a variáveis
-  
-### 🧹 Gerenciamento eficiente de memória com Valgrind
+- Sem estruturas de controle
+
+## 🧹 Gerenciamento eficiente de memória com Valgrind
 
 ```bash
 
-************** CALCULADORA SIMPLES DE EXPRESSAO ESCRITA EM C **************
-
-Informe a expresão (suporta somente numeros de 0 a 9 e 32 caracretes totais para uma expressao): (2+6+5+9+4+9)*9
-resultado: 315
-==19173== 
 ==19173== HEAP SUMMARY:
-==19173==     in use at exit: 0 bytes in 0 blocks
-==19173==   total heap usage: 36 allocs, 36 frees, 2,756 bytes allocated
-==19173== 
+==19173== in use at exit: 0 bytes in 0 blocks
+==19173== total heap usage: 36 allocs, 36 frees, 2,756 bytes allocated
+==19173==
 ==19173== All heap blocks were freed -- no leaks are possible
-==19173== 
-==19173== For lists of detected and suppressed errors, rerun with: -s
-==19173== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-thermius@arch: 
+==19173==
+==19173== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 1)
 ```
-Resultado: 36 alocações e 36 liberações, sem vazamentos de memória ou erros detectados pelo Valgrind no teste realizado.
+
+**Resultado:** 36 alocações e 36 liberações, sem vazamentos de memória ou erros detectados pelo Valgrind.
 
 
 ### 📚 Referência
-
 **Estruturas de Dados Usando C**
 - **Autores**: Aaron M. Tenenbaum, Yedidyah Langsam, Moshe J. Augenstein
 - **Formato**: Capa comum
 - **Edição**: Português
-
 Este projeto utiliza os conceitos fundamentais de pilhas (stacks) e algoritmos de conversão de expressões apresentados no capítulo 2 desta obra.
 
 
 ### 📄 Licença
-
 © 2026. Todos os direitos reservados.
-
 Este projeto é disponibilizado exclusivamente para fins de portfólio e demonstração técnica. O código-fonte não pode ser copiado, redistribuído, modificado ou utilizado, integral ou parcialmente, sem autorização prévia e explícita do autor.

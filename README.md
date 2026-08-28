@@ -1,4 +1,4 @@
-## 🧮 Calculadora de Expressões Matemáticas com AST
+## 🧮 Motor de Expressões Matemáticas com AST
 
 Um motor de processamento de expressões matemáticas desenvolvido em C puro, construído para receber expressões em notação infixa, realizar a análise e conversão para notação pós-fixa e então processar a expressão respeitando precedência, associatividade, parênteses e funções matemáticas.
 

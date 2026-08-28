@@ -97,8 +97,8 @@ char *ConverterParaPosfixo (char *entrada)
                     ultimo_token = NUMERICO_;
                 }
 
-                else if (isalpha (token_atual))
-                {
+                else
+                {                
                     printf("[ ERROR ] - ConverterParaPosfixo(): sem suporte ao caractere: %c\n", token_atual);
                     return NULL;
                 }
@@ -126,23 +126,23 @@ char *ConverterParaPosfixo (char *entrada)
 /*Retorna um inteiro para informar a procedencia. Quanto maior o inteiro, maior a procedencia*/
 int AvaliarProcedencia (char c)
 {
-	switch (c)
-	{
+    switch (c)
+    {
 
-	case '~':
-		return 4;
+    case '~':
+        return 4;
 
-	case '$':
-		return 3;
+    case '$':
+        return 3;
 
-	case '*':
-	case '/':
-		return 2;
+    case '*':
+    case '/':
+        return 2;
 
-	case '+':
-	case '-':
-		return 1;
+    case '+':
+    case '-':
+        return 1;
 
-	}
+    }
 }
 

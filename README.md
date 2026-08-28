@@ -1,88 +1,137 @@
-# 🧮 Motor de Expressões Matemáticas
+## 🧮 Calculadora de Expressões Matemáticas com AST
 
-Calculadora de expressões matemáticas desenvolvida em **C puro**. Implementa conversão de notação infixa para pós-fixa (algoritmo Shunting Yard) com suporte a números multi-dígitos e funções matemáticas.
+Um motor de processamento de expressões matemáticas desenvolvido em C puro, construído para receber expressões em notação infixa, realizar a análise e conversão para notação pós-fixa e então processar a expressão respeitando precedência, associatividade, parênteses e funções matemáticas.
 
-## ✨ Funcionalidades
-
-- ✅ Conversão de expressões **infixa → pós-fixa** (algoritmo Shunting Yard)
-- ✅ Suporte a **números com múltiplos dígitos**
-- ✅ **Funções matemáticas** (sin, cos, sqrt, etc)
-- ✅ Suporte completo a **parênteses** com aninhamento
-- ✅ **Precedência correta** de operadores (`*`, `/` antes de `+`, `-`)
-- ✅ Operadores suportados: `+`, `-`, `*`, `/`
-- ✅ **Zero vazamento de memória** (verificado com Valgrind)
-- ✅ Implementação educacional e bem comentada
+O projeto nasceu a partir da implementação de uma calculadora capaz de interpretar expressões matemáticas, evoluindo para uma estrutura de processamento composta por lexer, estruturas de dados, parsing e biblioteca de funções.
 
 ## 🚀 Compilação
 
 ```bash
-gcc -o motor-expressoes main.c 
+gcc -o motor-expressoes main.c
 ```
 
-### 💻 Uso no terminal:
+## 🌳 Árvore de Sintaxe Abstrata (AST)
 
-```bash
-thermius@arch: ./a.out 
-************** CALCULADORA SIMPLES DE EXPRESSAO ESCRITA EM C **************
-Informe a expresão (suporta somente numeros de 0 a 9 e 32 caracretes totais para uma expressao): (2+6+5+9+4+9)*9    
-resultado: 315
-thermius@arch:
+Após o processamento da expressão, o motor constrói uma Árvore de Sintaxe Abstrata (AST) que representa estruturalmente a operação que será executada.
 
-```
+Por exemplo, para a expressão:
 
-## 📚 Conceitos Demonstrados
+(2 + 6) * 9
 
-- Algoritmo Shunting Yard (Dijkstra)
-- Pilhas (stacks) para processamento de operadores
-- Precedência e associatividade de operadores
-- Tokenização e parsing de expressões
-- Conversão char → número (multi-dígito)
-- Avaliação de funções matemáticas
-- Gerenciamento seguro de memória em C
+A AST pode ser representada como:
 
-## 🚧 Roadmap do Interpretador
+                    *
+                   / \
+                  /   \
+                 +     9
+                / \
+               2   6
 
-Atualmente a ferramenta funciona como uma **calculadora de expressões**. O projeto evoluirá para um **interpretador completo** que utilizará **Árvore de Sintaxe Abstrata (AST)** para processar comandos, similar a linguagens de programação.
+A árvore representa a estrutura lógica da expressão:
 
-**Próximas fases:**
+        *
+       / \
+      +   9
+     / \
+    2   6
 
-- 1️⃣ Processamento de expressões matemáticas ✅ 
-- 2️⃣ Chamada a funções da "biblioteca padrão"
-- 3️⃣ Controle de fluxo (if, while, for)
-- 4️⃣ Variáveis e escopos
+Ou seja:
 
-## 🎯 Limitações Atuais
+(2 + 6) * 9
 
-- Máximo 32 caracteres por expressão (expansível)
-- Apenas operadores binários (`+`, `-`, `*`, `/`)
-- Sem suporte a operadores unários (negação, etc)
-- Sem suporte a variáveis
-- Sem estruturas de controle
+é interpretado como:
 
-## 🧹 Gerenciamento eficiente de memória com Valgrind
+        *
+       / \
+      +   9
+     / \
+    2   6
 
-```bash
+e não simplesmente como uma sequência de caracteres.
 
-==19173== HEAP SUMMARY:
-==19173== in use at exit: 0 bytes in 0 blocks
-==19173== total heap usage: 36 allocs, 36 frees, 2,756 bytes allocated
-==19173==
-==19173== All heap blocks were freed -- no leaks are possible
-==19173==
-==19173== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 1)
-```
+## 🔄 Pipeline de processamento
 
-**Resultado:** 36 alocações e 36 liberações, sem vazamentos de memória ou erros detectados pelo Valgrind.
+A arquitetura do motor pode ser resumida como:
+
+                    EXPRESSÃO
+                        │
+                        ▼
+                ┌──────────────┐
+                │    LEXER     │
+                │ Tokenização  │
+                └──────┬───────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │    PARSER    │
+                │  Análise da  │
+                │   expressão  │
+                └──────┬───────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │     AST      │
+                │              │
+                │      *       │
+                │     / \      │
+                │    +   9     │
+                │   / \        │
+                │  2   6       │
+                └──────┬───────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │  AVALIADOR   │
+                └──────┬───────┘
+                       │
+                       ▼
+                     72
+
+A AST permite separar a estrutura sintática da expressão da etapa responsável pela sua avaliação.
+
+Isso também cria uma base para futuras extensões do projeto, como variáveis, operadores adicionais, chamadas de funções e construção de um interpretador mais completo.
 
 
-### 📚 Referência
-**Estruturas de Dados Usando C**
-- **Autores**: Aaron M. Tenenbaum, Yedidyah Langsam, Moshe J. Augenstein
-- **Formato**: Capa comum
-- **Edição**: Português
-Este projeto utiliza os conceitos fundamentais de pilhas (stacks) e algoritmos de conversão de expressões apresentados no capítulo 2 desta obra.
+
+## 🛡️ Tratamento de expressões inválidas
+
+O motor também possui tratamento para expressões sintaticamente inválidas.
+
+A expressão não precisa ser válida para passar pelas etapas iniciais de processamento. O sistema consegue realizar a tokenização e a construção da representação pós-fixa, identificando posteriormente que a expressão não pode ser interpretada corretamente.
+
+Por exemplo, diante de uma entrada propositalmente absurda:
+
+45465465-**/-/-*-*-*--*/5656
+
+o motor produz:
+
+[ NOTA ] - main(): saida posfixada:
+45465465 * * ~ / ~ / ~ * ~ * ~ ~ * * 5656 / -
+
+e, ao tentar interpretar a expressão:
+
+[ ERROR ] - InterpretarInterativamente(): tá de sacanagem
+[ NOTA ] - main(): me poupe
+
+O ponto importante é que uma entrada inválida não causa uma falha inesperada do programa. O motor consegue percorrer seu pipeline de processamento e rejeitar a expressão durante a interpretação. 
+
+Esse comportamento é particularmente importante em um sistema que recebe expressões diretamente de um usuário: entradas inesperadas devem ser tratadas como dados inválidos, e não como uma condição capaz de derrubar o processo.
+
+Nota: as mensagens bem-humoradas exibidas pelo programa são intencionais e fazem parte da interface de depuração/demonstração do projeto. 😹
 
 
-### 📄 Licença
-© 2026. Todos os direitos reservados.
-Este projeto é disponibilizado exclusivamente para fins de portfólio e demonstração técnica. O código-fonte não pode ser copiado, redistribuído, modificado ou utilizado, integral ou parcialmente, sem autorização prévia e explícita do autor.
+
+## 🧪 Validação de memória
+
+O projeto também está sendo preparado para validação de gerenciamento de memória utilizando ferramentas como Valgrind.
+
+Os testes de memória ainda estão em andamento e, portanto, não são utilizados neste README como evidência de ausência de vazamentos ou erros de memória.
+
+A intenção é utilizar a ferramenta posteriormente para verificar as rotinas de:
+
+alocação dinâmica;
+liberação de estruturas;
+manipulação de tokens;
+construção e destruição da AST;
+estruturas auxiliares utilizadas durante o processamento.
+

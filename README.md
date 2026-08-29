@@ -122,11 +122,11 @@ Nota: as mensagens bem-humoradas exibidas pelo programa são intencionais e faze
 
 ## 📚 Referências
 
-# Compiladores: Princípios, Técnicas e Ferramentas. Volume 1. Rio de Janeiro: LTC, 1995.
+#### Compiladores: Princípios, Técnicas e Ferramentas. Volume 1. Rio de Janeiro: LTC, 1995.
 
 Obra utilizada como referência para conceitos relacionados à análise léxica, análise sintática, parsing, linguagens formais e representação estrutural de expressões, servindo como base teórica para componentes do motor, incluindo a construção da Árvore de Sintaxe Abstrata (AST).
 
-# Estruturas de Dados Usando C. São Paulo: Makron Books, 1995.
+#### Estruturas de Dados Usando C. São Paulo: Makron Books, 1995.
 Utilizado como referência para a implementação de estruturas de dados em C, incluindo pilhas, filas, árvores, ponteiros e estruturas dinâmicas.
 O projeto combina os conceitos dessas duas áreas: processamento de linguagens e estruturas de dados, implementados diretamente em C.
 

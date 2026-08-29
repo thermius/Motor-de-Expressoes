@@ -96,18 +96,23 @@ A expressão não precisa ser válida para passar pelas etapas iniciais de proce
 
 Por exemplo, diante de uma entrada propositalmente absurda:
 
+```bash
 45465465-**/-/-*-*-*--*/5656
+```
 
 o motor produz:
+```bash
 
 [ NOTA ] - main(): saida posfixada:
 45465465 * * ~ / ~ / ~ * ~ * ~ ~ * * 5656 / -
 
+```
 e, ao tentar interpretar a expressão:
+```bash
 
 [ ERROR ] - InterpretarInterativamente(): tá de sacanagem
 [ NOTA ] - main(): me poupe
-
+```
 O ponto importante é que uma entrada inválida não causa uma falha inesperada do programa. O motor consegue percorrer seu pipeline de processamento e rejeitar a expressão durante a interpretação. 
 
 Esse comportamento é particularmente importante em um sistema que recebe expressões diretamente de um usuário: entradas inesperadas devem ser tratadas como dados inválidos, e não como uma condição capaz de derrubar o processo.

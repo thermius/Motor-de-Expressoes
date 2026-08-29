@@ -78,7 +78,7 @@ Isso também cria uma base para futuras extensões do projeto, como variáveis, 
 
 ## 💻 Exemplo de uso no Terminal
 
-Para a expressão 5*9+4*(4+6+979+4--4):
+Para a expressão 5 * 9 + 4 * ( 4 + 6 + 979 + 4 - -4):
 
 ```bash
 thermius@arch: ./calculadora 

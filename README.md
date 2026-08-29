@@ -27,25 +27,9 @@ A AST pode ser representada como:
                 / \
                2   6
 
-A árvore representa a estrutura lógica da expressão:
+Quanto mais abaixo na árvore, maior será a procedência.
 
-        *
-       / \
-      +   9
-     / \
-    2   6
 
-Ou seja:
-
-(2 + 6) * 9
-
-é interpretado como:
-
-        *
-       / \
-      +   9
-     / \
-    2   6
 
 e não simplesmente como uma sequência de caracteres.
 
@@ -92,7 +76,18 @@ A AST permite separar a estrutura sintática da expressão da etapa responsável
 Isso também cria uma base para futuras extensões do projeto, como variáveis, operadores adicionais, chamadas de funções e construção de um interpretador mais completo.
 
 
+## 💻 Exemplo de uso no Terminal
 
+Para a expressão 5*9+4*(4+6+979+4--4):
+
+```bash
+thermius@arch: ./calculadora 
+[ ENTRADA ] - main(): Informe a expressão: 5*9+4*(4+6+979+4--4)
+[ NOTA ] - main(): saida posfixada: 5 9 * 4 4 6 + 979 + 4 + 4 ~ - * + 
+[ NOTA ] - main(): Resultado da expressao: 4033
+thermius@arch: 
+
+```
 ## 🛡️ Tratamento de expressões inválidas
 
 O motor também possui tratamento para expressões sintaticamente inválidas.

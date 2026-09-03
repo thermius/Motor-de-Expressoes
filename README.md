@@ -146,3 +146,8 @@ manipulação de tokens;
 construção e destruição da AST;
 estruturas auxiliares utilizadas durante o processamento.
 
+## 📄 Licença
+
+Todos os direitos reservados.
+
+Este projeto é disponibilizado exclusivamente para fins de portfólio e demonstração técnica. O código-fonte não pode ser copiado, redistribuído, modificado ou utilizado, integral ou parcialmente, sem autorização prévia e explícita do autor.
